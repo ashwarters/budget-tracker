@@ -1,9 +1,9 @@
 # budget-tracker
 
-#Summary
+# Summary
 This application is a budget tracker, that allows the user to track withdrawals and deposits with or without an internet connection. This will help to ensure the user that their account balance is accurate even while travelling, or when they are without internet service.
 
-#Tools-Used
+# Tools-Used
 - JS
 - Express
 - Node
@@ -12,6 +12,6 @@ This application is a budget tracker, that allows the user to track withdrawals 
 - Morgan
 - Heroku
 
-#Links
+# Links
 - https://ancient-cliffs-43653.herokuapp.com/
 - https://github.com/ashwarters
