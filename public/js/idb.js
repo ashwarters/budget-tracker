@@ -16,7 +16,7 @@ request.onsuccess = function(event) {
 };
 
 request.onerror = function(event) {
-    console.log("Uh-oh!" + event.target.errorCode);
+    console.log("error!" + event.target.errorCode);
 };
 
 
