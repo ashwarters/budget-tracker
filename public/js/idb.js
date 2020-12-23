@@ -16,14 +16,13 @@ request.onsuccess = function(event) {
 };
 
 request.onerror = function(event) {
-    console.log("error!" + event.target.errorCode);
+    console.log("Error!" + event.target.errorCode);
 };
 
 
 function saveRecord(record) {
     const transaction = db.transaction(["new_transaction"], "readwrite");
     const store = transaction.objectStore('new_transaction');
-    // const transactionObjectStore = transaction.objectStore('new_transaction');
     store.add(record);
 }
 
@@ -61,5 +60,5 @@ function sendTransaction() {
     };
 }
 
-// listen for app coming back online
+
 window.addEventListener('online', sendTransaction);
