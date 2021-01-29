@@ -73,7 +73,7 @@ self.addEventListener('activate', function(event) {
             cacheKeeplist.push(CACHE_NAME);
             return Promise.all(keyList.map(function(key, i) {
                 if (cacheKeeplist.indexOf(key) === -1) {
-                    console.log('deleting cache : ' + keyList[i]);
+                    console.log('Deleting cache : ' + keyList[i]);
                     return caches.delete(keyList[i]);
                 }
             }));

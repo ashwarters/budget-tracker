@@ -4,9 +4,12 @@ const mongoose = require("mongoose");
 const compression = require("compression");
 const path = require("path");
 
-const app = express();
 
 const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget-tracker";
+
+const app = express();
+
 
 app.use(logger('dev'));
 
@@ -16,14 +19,12 @@ app.use(express.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/budget-tracker";
 
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
-    useFindAndModify: false
+    useFindAndModify: false,
+    useUnifiedTopology: true
 });
-
-
 
 
 // routes

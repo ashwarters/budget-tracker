@@ -6,16 +6,17 @@ fetch("/api/transaction")
         return response.json();
     })
     .then(data => {
-        // save db data on global variable
         transactions = data;
 
         populateTotal();
         populateTable();
         populateChart();
+    })
+    .catch(err => {
+        console.log(err);
     });
 
 function populateTotal() {
-    // reduce transaction amounts to a single total value
     let total = transactions.reduce((total, t) => {
         return total + parseInt(t.value);
     }, 0);
@@ -29,7 +30,6 @@ function populateTable() {
     tbody.innerHTML = "";
 
     transactions.forEach(transaction => {
-        // create and populate a table row
         let tr = document.createElement("tr");
         tr.innerHTML = `
       <td>${transaction.name}</td>
@@ -41,6 +41,7 @@ function populateTable() {
 }
 
 function populateChart() {
+    //copy and reverse array
     let reversed = transactions.slice().reverse();
     let sum = 0;
 
@@ -53,7 +54,7 @@ function populateChart() {
         sum += parseInt(t.value);
         return sum;
     });
-
+    //delete old chart
     if (myChart) {
         myChart.destroy();
     }
